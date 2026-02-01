@@ -1,4 +1,4 @@
-klı # 🌟 NatalCard - Professional Astrology Backend API
+# 🌟 NatalCard - Professional Astrology Backend API
 
 <div align="center">
 
