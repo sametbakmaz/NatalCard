@@ -167,14 +167,14 @@ curl -X POST http://localhost:8080/api/astro/natal-chart \
 
 ```json
 {
-  "birthDateTimeLocal": "1996-04-23T14:35:00",  // ISO 8601 format
-  "timeZoneId": "Europe/Istanbul",              // IANA timezone
-  "latitude": 40.983,                           // Geographic latitude
-  "longitude": 29.029,                          // Geographic longitude
-  "zodiac": "TROPICAL",                         // Only TROPICAL supported
-  "houseSystem": "WHOLE_SIGN",                  // PLACIDUS | WHOLE_SIGN | EQUAL | KOCH
-  "includeAspects": true,                       // Calculate aspects?
-  "language": "tr"                              // en | tr
+  "birthDateTimeLocal": "1996-04-23T14:35:00",  
+  "timeZoneId": "Europe/Istanbul",             
+  "latitude": 40.983,                          
+  "longitude": 29.029,                          
+  "zodiac": "TROPICAL",                         
+  "houseSystem": "WHOLE_SIGN",                 
+  "includeAspects": true,                      
+  "language": "tr"                              
 }
 ```
 
@@ -205,7 +205,6 @@ curl -X POST http://localhost:8080/api/astro/natal-chart \
       "sign": "TAURUS",
       "signLocalized": "Boğa"
     }
-    // ... houses 2-12
   ],
   "points": {
     "SUN": {
@@ -226,7 +225,6 @@ curl -X POST http://localhost:8080/api/astro/natal-chart \
       "house": 3,
       "signDegree": 7.54
     }
-    // ... other planets
   },
   "aspects": [
     {
@@ -240,7 +238,6 @@ curl -X POST http://localhost:8080/api/astro/natal-chart \
       "orb": 3.95,
       "isApplying": null
     }
-    // ... other aspects
   ]
 }
 ```
@@ -410,9 +407,9 @@ Future enhancement will return:
 **Response:**
 ```json
 {
-  "zodiacSystems": [/* TROPICAL, SIDEREAL */],
-  "houseSystems": [/* PLACIDUS, WHOLE_SIGN, EQUAL, KOCH */],
-  "aspectTypes": [/* CONJUNCTION, SEXTILE, SQUARE, TRINE, OPPOSITION */],
+  "zodiacSystems": [],
+  "houseSystems": [],
+  "aspectTypes": [],
   "language": "tr"
 }
 ```
@@ -434,7 +431,6 @@ Future enhancement will return:
       "offset": "+03:00",
       "region": "Europe"
     }
-    // ... 11 more popular timezones
   ]
 }
 ```
@@ -457,7 +453,6 @@ Future enhancement will return:
     "recommended": true,
     "bestFor": "Most latitudes"
   }
-  // ... WHOLE_SIGN, EQUAL, KOCH
 ]
 ```
 
@@ -480,7 +475,6 @@ Future enhancement will return:
     "meaningLocalized": "Birlik, kaynaşma",
     "color": "#9C27B0"
   }
-  // ... other aspects with colors
 ]
 ```
 
@@ -873,5 +867,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ⭐ **Star this repo if you find it useful!** ⭐
 
 </div>
-#   N a t a l C a r d  
+#   N a t a l C a r d 
+ 
  
