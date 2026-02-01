@@ -1,0 +1,344 @@
+{
+  "info": {
+    "name": "NatalCard API",
+    "description": "Complete API collection for NatalCard astrology calculation service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Natal Chart API",
+      "item": [
+        {
+          "name": "Calculate Natal Chart (English)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"birthDateTimeLocal\": \"1996-04-23T14:35:00\",\n  \"timeZoneId\": \"Europe/Istanbul\",\n  \"latitude\": 40.983,\n  \"longitude\": 29.029,\n  \"zodiac\": \"TROPICAL\",\n  \"houseSystem\": \"PLACIDUS\",\n  \"includeAspects\": true,\n  \"language\": \"en\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/astro/natal-chart",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "astro", "natal-chart"]
+            },
+            "description": "Calculate a natal chart with English localization"
+          }
+        },
+        {
+          "name": "Calculate Natal Chart (Turkish)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"birthDateTimeLocal\": \"1996-04-23T14:35:00\",\n  \"timeZoneId\": \"Europe/Istanbul\",\n  \"latitude\": 40.983,\n  \"longitude\": 29.029,\n  \"zodiac\": \"TROPICAL\",\n  \"houseSystem\": \"PLACIDUS\",\n  \"includeAspects\": true,\n  \"language\": \"tr\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/astro/natal-chart",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "astro", "natal-chart"]
+            },
+            "description": "Calculate a natal chart with Turkish localization"
+          }
+        },
+        {
+          "name": "Whole Sign Houses",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"birthDateTimeLocal\": \"1985-08-05T14:00:00\",\n  \"timeZoneId\": \"America/New_York\",\n  \"latitude\": 40.7128,\n  \"longitude\": -74.0060,\n  \"zodiac\": \"TROPICAL\",\n  \"houseSystem\": \"WHOLE_SIGN\",\n  \"includeAspects\": true,\n  \"language\": \"en\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/astro/natal-chart",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "astro", "natal-chart"]
+            },
+            "description": "Example with Whole Sign house system"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Location API",
+      "item": [
+        {
+          "name": "Get All Countries",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/location/countries",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "location", "countries"]
+            },
+            "description": "Get list of all available countries"
+          }
+        },
+        {
+          "name": "Get Regions (Turkey)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/location/countries/TR/regions",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "location", "countries", "TR", "regions"]
+            },
+            "description": "Get all regions (provinces) of Turkey"
+          }
+        },
+        {
+          "name": "Get Cities (Istanbul)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/location/countries/TR/regions/34/places?level=CITY",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "location", "countries", "TR", "regions", "34", "places"],
+              "query": [
+                {
+                  "key": "level",
+                  "value": "CITY"
+                }
+              ]
+            },
+            "description": "Get cities in Istanbul region"
+          }
+        },
+        {
+          "name": "Get Districts (Istanbul)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/location/countries/TR/regions/34/places?level=DISTRICT",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "location", "countries", "TR", "regions", "34", "places"],
+              "query": [
+                {
+                  "key": "level",
+                  "value": "DISTRICT"
+                }
+              ]
+            },
+            "description": "Get districts in Istanbul"
+          }
+        },
+        {
+          "name": "Geocode Search",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/location/geocode?q=Kadıköy&countryCode=TR&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "location", "geocode"],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "Kadıköy"
+                },
+                {
+                  "key": "countryCode",
+                  "value": "TR"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Search for locations by name"
+          }
+        },
+        {
+          "name": "Reverse Geocode",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/location/reverse?lat=40.983&lon=29.029",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "location", "reverse"],
+              "query": [
+                {
+                  "key": "lat",
+                  "value": "40.983"
+                },
+                {
+                  "key": "lon",
+                  "value": "29.029"
+                }
+              ]
+            },
+            "description": "Get location from coordinates"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Utility API",
+      "item": [
+        {
+          "name": "Get All Picker Options (English)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/util/picker-options?language=en",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "util", "picker-options"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "en"
+                }
+              ]
+            },
+            "description": "Get all picker data in one call - RECOMMENDED for mobile apps!"
+          }
+        },
+        {
+          "name": "Get All Picker Options (Turkish)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/util/picker-options?language=tr",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "util", "picker-options"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "tr"
+                }
+              ]
+            },
+            "description": "Get all picker data with Turkish localization"
+          }
+        },
+        {
+          "name": "Get Popular Timezones",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/util/timezones/popular?language=en",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "util", "timezones", "popular"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "en"
+                }
+              ]
+            },
+            "description": "Get 12 most commonly used timezones"
+          }
+        },
+        {
+          "name": "Get All Timezones",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/util/timezones?language=en",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "util", "timezones"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "en"
+                }
+              ]
+            },
+            "description": "Get complete list of ~400 timezones"
+          }
+        },
+        {
+          "name": "Get House Systems",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/util/house-systems?language=en",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "util", "house-systems"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "en"
+                }
+              ]
+            },
+            "description": "Get available house systems"
+          }
+        },
+        {
+          "name": "Get Zodiac Systems",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/util/zodiac-systems?language=en",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "util", "zodiac-systems"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "en"
+                }
+              ]
+            },
+            "description": "Get available zodiac systems"
+          }
+        },
+        {
+          "name": "Get Aspect Types",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/util/aspect-types?language=en",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "util", "aspect-types"],
+              "query": [
+                {
+                  "key": "language",
+                  "value": "en"
+                }
+              ]
+            },
+            "description": "Get aspect types with colors and symbols"
+          }
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/util/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "util", "health"]
+            },
+            "description": "Check if Utility API is running"
+          }
+        }
+      ]
+    }
+  ]
+}
