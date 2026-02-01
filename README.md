@@ -39,7 +39,7 @@
 
 ### 📍 Location Services
 - ✅ **Hierarchical Location Data** - Country → Region → City → District
-- ✅ **Multiple Providers** - GeoDB Cities, GeoNames, Nominatim with automatic fallback
+- ✅ **Multiple Providers** - REST Countries, GeoNames, Nominatim with automatic fallback
 - ✅ **Intelligent Caching** - 7-30 days TTL using Caffeine
 - ✅ **Geocoding & Reverse Geocoding** - Lat/Lon ↔ Place name
 
@@ -80,7 +80,7 @@
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/NatalCard.git
+git clone https://github.com/sametbakmaz/NatalCard.git
 cd NatalCard
 ```
 
@@ -825,8 +825,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - [Astronomy Engine](https://github.com/cosinekitty/astronomy) - For accurate planet position calculations
 - [Spring Boot](https://spring.io/projects/spring-boot) - Application framework
-- [GeoDB Cities API](https://geodb-cities-api.wirefreethought.com/) - Location data provider
-- [GeoNames](https://www.geonames.org/) - Geographic database
+- [REST Countries API](https://restcountries.com/) - Free country data provider
+- [GeoNames](https://www.geonames.org/) - Geographic database for regions and cities
 - [OpenStreetMap](https://www.openstreetmap.org/) - Nominatim geocoding service
 
 ---
