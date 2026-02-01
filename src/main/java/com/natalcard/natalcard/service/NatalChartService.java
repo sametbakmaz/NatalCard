@@ -41,8 +41,9 @@ public class NatalChartService {
             throw new IllegalArgumentException("Only TROPICAL zodiac is supported");
         }
 
-        // Convert local datetime to UTC Instant
-        LocalDateTime localDateTime = LocalDateTime.parse(request.getBirthDateTimeLocal());
+        // Convert local datetime to UTC Instant (trim spaces for flexible parsing)
+        String birthDateTime = request.getBirthDateTimeLocal().replaceAll("\\s+", "");
+        LocalDateTime localDateTime = LocalDateTime.parse(birthDateTime);
         ZoneId zoneId = ZoneId.of(request.getTimeZoneId());
         Instant instant = localDateTime.atZone(zoneId).toInstant();
 
